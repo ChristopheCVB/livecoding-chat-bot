@@ -72,7 +72,7 @@ function processMessage() {
         // Someone entered the room
         if(text.indexOf(' joined the room.') != -1) {
             var userJoined = text.slice(0, text.indexOf(' joined the room.'));
-            postMessage("Hello " + userJoined + " welcome to my stream! For commands type !help");
+            postMessage("Hello @" + userJoined + " welcome to my stream! For commands type !help");
         }     
     } else {
         // var userName = $('a', message).text(); <- That includes all links in a message.
