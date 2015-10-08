@@ -151,6 +151,14 @@ function processMessage() {
                 }
             break;
             
+            case '!room':
+                var users = [];
+                $('.roster-pane .user .label').each(function(index){
+                    users.push($(this).text());
+                })
+                postMessage('Users in the room : ' + users.join(', '));
+                break;
+            
             // Admin only commands
             case '!game':
                 // Check if admin (bot has been started by the current user)
@@ -219,7 +227,7 @@ function processMessages() {
 }
 
 function getBaseCommands() {
-    return ['!help', '!time', '!leaderboard', '!ans'];
+    return ['!help', '!time', '!leaderboard', '!ans', '!room'];
 }
 
 function getAdminCommands() {
