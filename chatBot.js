@@ -3,7 +3,8 @@ var messageQueue = [];
 var messageCount;
 var textarea = $('#message-textarea');
 var submit = $('input[type="submit"]');
-var myUser = $('.main-navigation .user-name').text().trim().toUpperCase();
+paths = window.location.pathname.split('/');
+var myUser = paths.length == 4 ? paths[2].toUpperCase() : paths[1].toUpperCase();
 var gameStopped = true;
 var botWritingCount = 0;
 
@@ -71,7 +72,7 @@ function processMessage() {
         // Someone entered the room
         if(text.indexOf(' joined the room.') != -1) {
             var userJoined = text.slice(0, text.indexOf(' joined the room.'));
-            postMessage("Hello " + userJoined + " welcome to my stream!");
+            postMessage("Hello " + userJoined + " welcome to my stream! For commands type !help");
         }     
     } else {
         // var userName = $('a', message).text(); <- That includes all links in a message.
