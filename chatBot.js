@@ -199,6 +199,25 @@ function processMessage() {
                 postMessage('Bot has been reset! :-s');
             break;
             
+            case '!ban':
+                if(!isAdmin(userName)) break;
+                
+                var banned = false;
+                var userToBan = parameter.replace('@', '');
+                $('.roster-pane .user:not(.me)').each(function(index){
+                    currentUser = $(this).find('.label').text();
+                    if (currentUser == userToBan) {
+                        $(this).find('.context').trigger('click');
+                        $('li.ban').trigger('click
+                        $modalBan = $('#chat-modal');
+                        $modalBan.find('input[type=text]').value('Ban');
+                        $modalBan.find('input[type=submit]').trigger('click');
+                        banned = true;
+                    }
+                });
+                postMessage(banned ? 'User ' + userToBan + ' has been banned.' : 'User ' + userToBan + ' not found.');
+                break;
+            
             default:
                 var key = command.replace('!', '');
                 if (responses[key] != undefined) {
@@ -231,7 +250,7 @@ function getBaseCommands() {
 }
 
 function getAdminCommands() {
-    return ['!set', '!reset', '!game'];
+    return ['!set', '!reset', '!game', '!ban'];
 }
 
 function getCustomCommands() {
