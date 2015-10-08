@@ -208,9 +208,9 @@ function processMessage() {
                     currentUser = $(this).find('.label').text();
                     if (currentUser == userToBan) {
                         $(this).find('.context').trigger('click');
-                        $('li.ban').trigger('click
+                        $('li.ban').trigger('click');
                         $modalBan = $('#chat-modal');
-                        $modalBan.find('input[type=text]').value('Ban');
+                        $modalBan.find('input[type=text]').val('Ban');
                         $modalBan.find('input[type=submit]').trigger('click');
                         banned = true;
                     }
