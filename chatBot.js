@@ -76,7 +76,7 @@ function processMessage() {
         }     
     } else {
         // var userName = $('a', message).text(); <- That includes all links in a message.
-        var userName = $('.nickname', message).text(); // There's a class for names!
+        var userName = $('.nickname', message).attr('href').split('/').join(''); // There's a class for names!
 
         var regexp = new RegExp("^"+userName, "g");
 
